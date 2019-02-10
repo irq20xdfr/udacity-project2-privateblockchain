@@ -1,66 +1,53 @@
-<<<<<<< HEAD
-# Blockchain Data
+# Codebase for Private Blockchain for Udacity's Blockchain Developer 2nd Project
 
 Blockchain has the potential to change the way that the world approaches data. Develop Blockchain skills by understanding the data model behind Blockchain by developing your own simplified private blockchain.
 
-## Getting Started
+## Leveraging ES6 Class features
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+I used classes and methods to keep the modularity and take advantage of the new Javascript features
+Learned from this Udacity courses:
 
-### Prerequisites
+ES6 - JavaScript Improved - [https://www.udacity.com/course/es6-javascript-improved--ud356]
+JavaScript Promises - [https://www.udacity.com/course/javascript-promises--ud898]
+Object-Oriented JavaScript - [https://www.udacity.com/course/object-oriented-javascript--ud711]
 
-Installing Node and NPM is pretty straightforward using the installer package available from the (Node.js® web site)[https://nodejs.org/en/].
+### Using async/await new feature to keep consistency
 
-### Configuring your project
+```let myBlockChain = await factory(Blockchain.Blockchain);```
+The factory pattern is used to wait for the Blockchain class object to be ready before using it for adding blocks, preventing this way double Genesis block adding and other unexpected behaviour
 
-- Use NPM to initialize your project and create package.json to store project dependencies.
-```
-npm init
-```
-- Install crypto-js with --save flag to save dependency to our package.json file
-```
-npm install crypto-js --save
-```
-- Install level with --save flag
-```
-npm install level --save
-```
+### Chaining promises
+
+- As learned in the Udacity JavaScript Promises course, i chained several promises in validateChain method to:
+
+1. Get current validating block data
+2. Get next block data to check the previousBlockHash field value and check the links are valid
+3. Adding any detect blocks to the array and return it as a result
 
 ## Testing
 
 To test code:
-1: Open a command prompt or shell terminal after install node.js.
-2: Enter a node session, also known as REPL (Read-Evaluate-Print-Loop).
+1: Uncomment necessary lines from simpleChain.js code, depending of the method that you want to test
+2: Uncomment the following part in which 10 blocks are added to the DB, in order to test.
+3: Run node simpleChain.js
 ```
-node
+(function theLoop (i) {
+		setTimeout(function () {
+			let blockTest = new Block.Block("Test Block - " + (i + 1));
+			// Be careful this only will work if your method 'addBlock' in the Blockchain.js file return a Promise
+			myBlockChain.addBlock(blockTest).then((result) => {
+				console.log(result);
+				i++;
+				if (i < 10) theLoop(i);
+			});
+		}, 2000);
+	  })(0);
 ```
-3: Copy and paste your code into your node session
-4: Instantiate blockchain with blockchain variable
+4: Example of getting a block data
 ```
-let blockchain = new Blockchain();
-```
-5: Generate 10 blocks using a for loop
-```
-for (var i = 0; i <= 10; i++) {
-  blockchain.addBlock(new Block("test data "+i));
-}
-```
-6: Validate blockchain
-```
-blockchain.validateChain();
-```
-7: Induce errors by changing block data
-```
-let inducedErrorBlocks = [2,4,7];
-for (var i = 0; i < inducedErrorBlocks.length; i++) {
-  blockchain.chain[inducedErrorBlocks[i]].data='induced chain error';
-}
-```
-8: Validate blockchain. The chain should now fail with blocks 2,4, and 7.
-```
-blockchain.validateChain();
+	myBlockChain.getBlock(0).then((block) => {
+		console.log(JSON.stringify(block));
+	}).catch((err) => { console.log(err);});
 ```
 =======
-# udacity-project2-privateblockchain
-Codebase for Private Blockchain for Udacity's Blockchain Developer 2nd Project
->>>>>>> 7e6735a65b2144c161b904dd0aca783e409c4195
+
