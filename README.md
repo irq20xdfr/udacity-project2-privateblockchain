@@ -49,5 +49,4 @@ To test code:
 		console.log(JSON.stringify(block));
 	}).catch((err) => { console.log(err);});
 ```
-=======
 
