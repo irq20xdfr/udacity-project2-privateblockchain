@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Blockchain Data
 
 Blockchain has the potential to change the way that the world approaches data. Develop Blockchain skills by understanding the data model behind Blockchain by developing your own simplified private blockchain.
@@ -59,3 +60,7 @@ for (var i = 0; i < inducedErrorBlocks.length; i++) {
 ```
 blockchain.validateChain();
 ```
+=======
+# udacity-project2-privateblockchain
+Codebase for Private Blockchain for Udacity's Blockchain Developer 2nd Project
+>>>>>>> 7e6735a65b2144c161b904dd0aca783e409c4195
