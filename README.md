@@ -7,18 +7,18 @@ Blockchain has the potential to change the way that the world approaches data. D
 I used classes and methods to keep the modularity and take advantage of the new Javascript features
 Learned from this Udacity courses:
 
-ES6 - JavaScript Improved - [https://www.udacity.com/course/es6-javascript-improved--ud356]
-JavaScript Promises - [https://www.udacity.com/course/javascript-promises--ud898]
-Object-Oriented JavaScript - [https://www.udacity.com/course/object-oriented-javascript--ud711]
+ES6 - JavaScript Improved - [https://www.udacity.com/course/es6-javascript-improved--ud356]<br />
+JavaScript Promises - [https://www.udacity.com/course/javascript-promises--ud898]<br />
+Object-Oriented JavaScript - [https://www.udacity.com/course/object-oriented-javascript--ud711]<br />
 
 ### Using async/await new feature to keep consistency
 
-```let myBlockChain = await factory(Blockchain.Blockchain);```
+```let myBlockChain = await factory(Blockchain.Blockchain);```<br />
 The factory pattern is used to wait for the Blockchain class object to be ready before using it for adding blocks, preventing this way double Genesis block adding and other unexpected behaviour
 
 ### Chaining promises
 
-- As learned in the Udacity JavaScript Promises course, i chained several promises in validateChain method to:
+- As learned in the Udacity JavaScript Promises course, i chained several promises in validateChain method to:<br />
 
 1. Get current validating block data
 2. Get next block data to check the previousBlockHash field value and check the links are valid
@@ -27,9 +27,9 @@ The factory pattern is used to wait for the Blockchain class object to be ready 
 ## Testing
 
 To test code:
-1: Uncomment necessary lines from simpleChain.js code, depending of the method that you want to test
-2: Uncomment the following part in which 10 blocks are added to the DB, in order to test.
-3: Run node simpleChain.js
+1: Uncomment necessary lines from simpleChain.js code, depending of the method that you want to test<br />
+2: Uncomment the following part in which 10 blocks are added to the DB, in order to test.<br />
+3: Run node simpleChain.js<br />
 ```
 (function theLoop (i) {
 		setTimeout(function () {
@@ -43,7 +43,7 @@ To test code:
 		}, 2000);
 	  })(0);
 ```
-4: Example of getting a block data
+4: Example of getting a block data<br />
 ```
 	myBlockChain.getBlock(0).then((block) => {
 		console.log(JSON.stringify(block));
